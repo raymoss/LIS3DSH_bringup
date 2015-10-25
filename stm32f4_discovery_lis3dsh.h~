@@ -1,0 +1,357 @@
+#ifndef STM32F4_DISCOVERY_LIS3DSH_H
+#define STM32F4_DISCOVERY_LIS3DSH_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
+#include "stm32f4xx.h"
+/* LIS3DSH struct */
+typedef struct
+{
+  uint8_t Power_Mode;                         /* Power-down/Active Mode */
+  uint8_t Block_data_update;                    /* OUT data rate 100 Hz / 400 Hz */
+  uint8_t Axes_Enable;                       /* Axes enable */
+                          /* Full scale */
+                           /* Self test */
+  uint8_t Anti_Alising_bandwidth;
+  uint8_t Full_scale_selection;
+  uint8_t Self_test_enable;
+  uint8_t SPI_mode_selection;
+}LIS3DSH_InitTypeDef;
+
+
+/* LIS3DSH Interrupt struct */       /***************************Not updated for this model since its bringup ;) */
+typedef struct
+{
+  uint8_t Latch_Request;                      /* Latch interrupt request into CLICK_SRC register*/
+  uint8_t SingleClick_Axes;                   /* Single Click Axes Interrupts */
+  uint8_t DoubleClick_Axes;                   /* Double Click Axes Interrupts */ 
+}LIS3DSH_InterruptConfigTypeDef;  
+
+
+#define LIS3DSH_FLAG_TIMEOUT         ((uint32_t)0x1000)
+
+/**
+  * @brief  LIS3DSH SPI Interface pins
+  */
+#define LIS3DSH_POWER_MODE(value)	   (uint8_t)(value<<4)	   /* Check frequency which needs to be supplied in CTRL_REG4_settings in datasheet*/
+#define LIS3DSH_X_AXIS_ENABLE		   (uint8_t)(0x1)
+#define LIS3DSH_Y_AXIS_ENABLE		   (uint8_t)(0x1<<1)
+#define LIS3DSH_Z_AXIS_ENABLE		   (uint8_t)(0x1<<2)
+#define LIS3DSH_BDU_NO_UPDATE		   (uint8_t)(0x1<<3)
+#define LIS3DSH_ANTI_ALIASING   	   (uint8_t)()	
+
+#define I_AM_LIS3DSH 0x3F
+/** @defgroup Sensitivity_selection
+* @{
+*/
+#define LIS3DSH_SENSITIVITY_0_06G 0.06 /* 0.06 mg/digit*/
+#define LIS3DSH_SENSITIVITY_0_12G 0.12 /* 0.12 mg/digit*/
+#define LIS3DSH_SENSITIVITY_0_18G 0.18 /* 0.18 mg/digit*/
+#define LIS3DSH_SENSITIVITY_0_24G 0.24 /* 0.24 mg/digit*/
+#define LIS3DSH_SENSITIVITY_0_73G 0.73 /* 0.73 mg/digit*/
+/**
+* @}
+*/
+
+/*
+** @defgroup Data_Rate_Power_Mode_selection
+* @{
+*/
+#define LIS3DSH_DATARATE_POWERDOWN ((uint8_t)0x00<<3) /* Power Down Mode*/
+#define LIS3DSH_DATARATE_3_125 ((uint8_t)0x10<<3) /* 3.125 Hz Normal Mode */
+#define LIS3DSH_DATARATE_6_25 ((uint8_t)0x20<<3) /* 6.25 Hz Normal Mode */
+#define LIS3DSH_DATARATE_12_5 ((uint8_t)0x30<<3) /* 12.5 Hz Normal Mode */
+#define LIS3DSH_DATARATE_25 ((uint8_t)0x40<<3) /* 25 Hz Normal Mode */
+#define LIS3DSH_DATARATE_50 ((uint8_t)0x50<<3) /* 50 Hz Normal Mode */
+#define LIS3DSH_DATARATE_100 ((uint8_t)0x60<<3) /* 100 Hz Normal Mode */
+#define LIS3DSH_DATARATE_400 ((uint8_t)0x70<<3) /* 400 Hz Normal Mode */
+#define LIS3DSH_DATARATE_800 ((uint8_t)0x80<<3) /* 800 Hz Normal Mode */
+#define LIS3DSH_DATARATE_1600 ((uint8_t)0x90<<3) /* 1600 Hz Normal Mode */
+/**
+* @}
+*/
+/** @defgroup Full_Scale_selection
+* @{
+*/
+#define LIS3DSH_FULLSCALE_2 ((uint8_t)0x00) /* 2 g */
+#define LIS3DSH_FULLSCALE_4 ((uint8_t)0x08) /* 4 g */
+#define LIS3DSH_FULLSCALE_6 ((uint8_t)0x10) /* 6 g */
+#define LIS3DSH_FULLSCALE_8 ((uint8_t)0x18) /* 8 g */
+#define LIS3DSH_FULLSCALE_16 ((uint8_t)0x20) /* 16 g */
+#define LIS3DSH__FULLSCALE_SELECTION ((uint8_t)0x38)
+/**
+* @}
+*/
+/** @defgroup Anti-Aliasing_Filter_Bandwidth
+* @{
+*/
+#define LIS3DSH_FILTER_BW_800 ((uint8_t)0x00) /* 800 Hz */
+#define LIS3DSH_FILTER_BW_40 ((uint8_t)0x08) /* 40 Hz */
+#define LIS3DSH_FILTER_BW_200 ((uint8_t)0x10) /* 200 Hz */
+#define LIS3DSH_FILTER_BW_50 ((uint8_t)0x18) /* 50 Hz */
+/**
+* @}
+*/
+
+/** @defgroup Self_Test_selection
+* @{
+*/
+#define LIS3DSH_SELFTEST_NORMAL ((uint8_t)0x00)
+#define LIS3DSH_SELFTEST_P ((uint8_t)0x02)
+#define LIS3DSH_SELFTEST_M ((uint8_t)0x04)
+/**
+* @}
+*/
+/** @defgroup Direction_XYZ_selection
+* @{
+*/
+#define LIS3DSH_X_ENABLE ((uint8_t)0x01)
+#define LIS3DSH_Y_ENABLE ((uint8_t)0x02)
+#define LIS3DSH_Z_ENABLE ((uint8_t)0x04)
+#define LIS3DSH_XYZ_ENABLE ((uint8_t)0x07)
+/**
+* @}
+*/
+/** @defgroup SPI_Serial_Interface_Mode_selection
+* @{
+*/
+#define LIS3DSH_SERIALINTERFACE_4WIRE	 ((uint8_t)0x00)
+#define LIS3DSH_SERIALINTERFACE_3WIRE ((uint8_t)0x01)
+/**
+* @}
+*/ 
+
+#define LIS3DSH_SPI                       SPI1
+#define LIS3DSH_SPI_CLK                   RCC_APB2Periph_SPI1
+
+#define LIS3DSH_SPI_SCK_PIN               GPIO_Pin_5                  /* PA.05 */
+#define LIS3DSH_SPI_SCK_GPIO_PORT         GPIOA                       /* GPIOA */
+#define LIS3DSH_SPI_SCK_GPIO_CLK          RCC_AHB1Periph_GPIOA
+#define LIS3DSH_SPI_SCK_SOURCE            GPIO_PinSource5
+#define LIS3DSH_SPI_SCK_AF                GPIO_AF_SPI1
+
+#define LIS3DSH_SPI_MISO_PIN              GPIO_Pin_6                  /* PA.6 */
+#define LIS3DSH_SPI_MISO_GPIO_PORT        GPIOA                       /* GPIOA */
+#define LIS3DSH_SPI_MISO_GPIO_CLK         RCC_AHB1Periph_GPIOA
+#define LIS3DSH_SPI_MISO_SOURCE           GPIO_PinSource6
+#define LIS3DSH_SPI_MISO_AF               GPIO_AF_SPI1
+
+#define LIS3DSH_SPI_MOSI_PIN              GPIO_Pin_7                  /* PA.7 */
+#define LIS3DSH_SPI_MOSI_GPIO_PORT        GPIOA                       /* GPIOA */
+#define LIS3DSH_SPI_MOSI_GPIO_CLK         RCC_AHB1Periph_GPIOA
+#define LIS3DSH_SPI_MOSI_SOURCE           GPIO_PinSource7
+#define LIS3DSH_SPI_MOSI_AF               GPIO_AF_SPI1
+
+#define LIS3DSH_SPI_CS_PIN                GPIO_Pin_3                  /* PE.03 */
+#define LIS3DSH_SPI_CS_GPIO_PORT          GPIOE                       /* GPIOE */
+#define LIS3DSH_SPI_CS_GPIO_CLK           RCC_AHB1Periph_GPIOE
+/*
+#define LIS3DSH_SPI_INT1_PIN              GPIO_Pin_0                  /* PE.00 
+#define LIS3DSH_SPI_INT1_GPIO_PORT        GPIOE                       /* GPIOE 
+#define LIS3DSH_SPI_INT1_GPIO_CLK         RCC_AHB1Periph_GPIOE
+#define LIS3DSH_SPI_INT1_EXTI_LINE        EXTI_Line0
+#define LIS3DSH_SPI_INT1_EXTI_PORT_SOURCE EXTI_PortSourceGPIOE
+#define LIS3DSH_SPI_INT1_EXTI_PIN_SOURCE  EXTI_PinSource0
+#define LIS3DSH_SPI_INT1_EXTI_IRQn        EXTI0_IRQn 
+
+#define LIS3DSH_SPI_INT2_PIN              GPIO_Pin_1                  /* PE.01 
+#define LIS3DSH_SPI_INT2_GPIO_PORT        GPIOE                       /* GPIOE 
+#define LIS3DSH_SPI_INT2_GPIO_CLK         RCC_AHB1Periph_GPIOE
+#define LIS3DSH_SPI_INT2_EXTI_LINE        EXTI_Line1
+#define LIS3DSH_SPI_INT2_EXTI_PORT_SOURCE EXTI_PortSourceGPIOE
+#define LIS3DSH_SPI_INT2_EXTI_PIN_SOURCE  EXTI_PinSource1
+#define LIS3DSH_SPI_INT2_EXTI_IRQn        EXTI1_IRQn 
+ */
+
+#define LIS3DSH_WHO_AM_I_ADDR                  0x0F
+#define LIS3DSH_CTRL_REG4_ADDR			0x20      /*Funtionality similar to LIS3DSH_CTRL_REG1_ADDR */
+#define LIS3DSH_CTRL_REG5_ADDR			0x24	/*Funtionality similar to LIS3DSH_CTRL_REG2_ADDR */
+#define LIS3DSH_CTRL_REG3_ADDR			0x23	/*Funtionality similar to LIS3DSH_CTRL_REG3_ADDR */
+/*#define LIS3DSH_HP_FILTER_RESET_REG_ADDR     0x23	have not mapped this register as seems to be not useful right now */
+#define LIS3DSH_STATUS_REG_ADDR			0x27	/*Funtionality similar to LIS3DSH_STATUS_REG_ADDR */             
+#define LIS3DSH_OUT_XL_ADDR			0x28
+#define LIS3DSH_OUT_XH_ADDR			0x29
+#define LIS3DSH_OUT_YL_ADDR			0x2A
+#define LIS3DSH_OUT_YH_ADDR			0x2B
+#define LIS3DSH_OUT_YL_ADDR			0x2C
+#define LIS3DSH_OUT_YH_ADDR			0x2D
+
+
+
+
+
+/* Will modify at run time of the basis of requirement of the project . Currently dont have the values to be updated.
+
+#define LIS3DSH_SENSITIVITY_2_3G                         18  /* 18 mg/digit
+#define LIS3DSH_SENSITIVITY_9_2G                         72  /* 72 mg/digit
+
+/** @defgroup Data_Rate_selection                 
+  * @{
+  
+#define LIS3DSH_DATARATE_100                             ((uint8_t)0x00)
+#define LIS3DSH_DATARATE_400                             ((uint8_t)0x80)
+/**
+  * @}
+  */
+  
+/** @defgroup Power_Mode_selection 
+  * @{
+  
+#define LIS3DSH_LOWPOWERMODE_POWERDOWN                   ((uint8_t)0x00)
+#define LIS3DSH_LOWPOWERMODE_ACTIVE                      ((uint8_t)0x40)
+/**
+  * @}
+  */
+  
+/** @defgroup Full_Scale_selection 
+  * @{
+  
+#define LIS3DSH_FULLSCALE_2_3                            ((uint8_t)0x00)
+#define LIS3DSH_FULLSCALE_9_2                            ((uint8_t)0x20)
+/**
+  * @}
+  */
+  
+/** @defgroup Self_Test_selection 
+  * @{
+  
+#define LIS3DSH_SELFTEST_NORMAL                          ((uint8_t)0x00)
+#define LIS3DSH_SELFTEST_P                               ((uint8_t)0x10)
+#define LIS3DSH_SELFTEST_M                               ((uint8_t)0x08)
+/**
+  * @}
+  */  
+
+/** @defgroup Direction_XYZ_selection 
+  * @{
+  
+#define LIS3DSH_X_ENABLE                                 ((uint8_t)0x01)
+#define LIS3DSH_Y_ENABLE                                 ((uint8_t)0x02)
+#define LIS3DSH_Z_ENABLE                                 ((uint8_t)0x04)
+#define LIS3DSH_XYZ_ENABLE                               ((uint8_t)0x07)
+/**
+  * @}
+  */
+ 
+ /** @defgroup SPI_Serial_Interface_Mode_selection 
+  * @{
+  
+#define LIS3DSH_SERIALINTERFACE_4WIRE                    ((uint8_t)0x00)
+#define LIS3DSH_SERIALINTERFACE_3WIRE                    ((uint8_t)0x80)
+/**
+  * @}
+  */ 
+
+ /** @defgroup Boot_Mode_selection 
+  * @{
+  
+#define LIS3DSH_BOOT_NORMALMODE                          ((uint8_t)0x00)
+#define LIS3DSH_BOOT_REBOOTMEMORY                        ((uint8_t)0x40)
+/**
+  * @}
+  */   
+
+ /** @defgroup Filtered_Data_Selection_Mode_selection 
+  * @{
+  
+#define LIS3DSH_FILTEREDDATASELECTION_BYPASSED           ((uint8_t)0x00)
+#define LIS3DSH_FILTEREDDATASELECTION_OUTPUTREGISTER     ((uint8_t)0x20)
+/**
+  * @}
+  */ 
+  
+ /** @defgroup High_Pass_Filter_Interrupt_selection 
+  * @{
+    
+#define LIS3DSH_HIGHPASSFILTERINTERRUPT_OFF              ((uint8_t)0x00)
+#define LIS3DSH_HIGHPASSFILTERINTERRUPT_1                ((uint8_t)0x04)
+#define LIS3DSH_HIGHPASSFILTERINTERRUPT_2                ((uint8_t)0x08)
+#define LIS3DSH_HIGHPASSFILTERINTERRUPT_1_2              ((uint8_t)0x0C)
+/**
+  * @}
+  */ 
+  
+ /** @defgroup High_Pass_Filter_selection 
+  * @{
+ 
+#define LIS3DSH_HIGHPASSFILTER_LEVEL_0                   ((uint8_t)0x00)
+#define LIS3DSH_HIGHPASSFILTER_LEVEL_1                   ((uint8_t)0x01)
+#define LIS3DSH_HIGHPASSFILTER_LEVEL_2                   ((uint8_t)0x02)
+#define LIS3DSH_HIGHPASSFILTER_LEVEL_3                   ((uint8_t)0x03)
+/**
+  * @}
+  */
+
+
+/** @defgroup latch_Interrupt_Request_selection 
+  * @{
+  
+#define LIS3DSH_INTERRUPTREQUEST_NOTLATCHED              ((uint8_t)0x00)
+#define LIS3DSH_INTERRUPTREQUEST_LATCHED                 ((uint8_t)0x40)
+/**
+  * @}
+  */
+
+/** @defgroup Click_Interrupt_XYZ_selection 
+  * @{
+  
+#define LIS3DSH_CLICKINTERRUPT_XYZ_DISABLE               ((uint8_t)0x00)
+#define LIS3DSH_CLICKINTERRUPT_X_ENABLE                  ((uint8_t)0x01)
+#define LIS3DSH_CLICKINTERRUPT_Y_ENABLE                  ((uint8_t)0x04)
+#define LIS3DSH_CLICKINTERRUPT_Z_ENABLE                  ((uint8_t)0x10)
+#define LIS3DSH_CLICKINTERRUPT_XYZ_ENABLE                ((uint8_t)0x15)
+/**
+  * @}
+  */
+
+/** @defgroup Double_Click_Interrupt_XYZ_selection 
+  * @{
+  
+#define LIS3DSH_DOUBLECLICKINTERRUPT_XYZ_DISABLE         ((uint8_t)0x00)
+#define LIS3DSH_DOUBLECLICKINTERRUPT_X_ENABLE            ((uint8_t)0x02)
+#define LIS3DSH_DOUBLECLICKINTERRUPT_Y_ENABLE            ((uint8_t)0x08)
+#define LIS3DSH_DOUBLECLICKINTERRUPT_Z_ENABLE            ((uint8_t)0x20)
+#define LIS3DSH_DOUBLECLICKINTERRUPT_XYZ_ENABLE          ((uint8_t)0x2A)
+/**
+  * @}
+  */
+/**
+  * @}
+  */ 
+  
+/** @defgroup STM32F4_DISCOVERY_LIS3DSH_Exported_Macros
+  * @{
+  
+
+
+
+
+******************************************************************************/
+/** @defgroup STM32F4_DISCOVERY_LIS3DSH_Exported_Functions
+  * @{
+  */ 
+
+#define LIS3DSH_CS_LOW()       GPIO_ResetBits(LIS3DSH_SPI_CS_GPIO_PORT, LIS3DSH_SPI_CS_PIN)
+#define LIS3DSH_CS_HIGH()      GPIO_SetBits(LIS3DSH_SPI_CS_GPIO_PORT, LIS3DSH_SPI_CS_PIN)
+
+void LIS3DSH_Init(LIS3DSH_InitTypeDef *LIS3DSH_InitStruct);
+//void LIS3DSH_FilterConfig(LIS3DSH_FilterConfigTypeDef *LIS3DSH_FilterConfigStruct);
+
+
+/*******Currently not required
+void LIS3DSH_InterruptConfig(LIS3DSH_InterruptConfigTypeDef *LIS3DSH_InterruptConfigStruct);
+void LIS3DSH_LowpowerCmd(uint8_t LowPowerMode);
+void LIS3DSH_FullScaleCmd(uint8_t FS_value);
+void LIS3DSH_DataRateCmd(uint8_t DataRateValue);
+void LIS3DSH_RebootCmd(void);
+
+********Currently not required*********/
+void LIS3DSH_ReadACC(int32_t* out);
+void LIS3DSH_Write(uint8_t* pBuffer, uint8_t WriteAddr, uint16_t NumByteToWrite);
+void LIS3DSH_Read(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead);
+#ifdef __cplusplus
+ extern "C" {
+#endif
+#endif
+
+

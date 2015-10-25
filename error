@@ -1,0 +1,694 @@
+In file included from main.h:5:0,
+                 from main.c:1:
+stm32f4_discovery_lis3dsh.h:149:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT1_PIN              GPIO_Pin_0                  /* PE.00 
+ ^
+stm32f4_discovery_lis3dsh.h:150:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT1_GPIO_PORT        GPIOE                       /* GPIOE 
+ ^
+stm32f4_discovery_lis3dsh.h:157:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT2_PIN              GPIO_Pin_1                  /* PE.01 
+ ^
+stm32f4_discovery_lis3dsh.h:158:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT2_GPIO_PORT        GPIOE                       /* GPIOE 
+ ^
+stm32f4_discovery_lis3dsh.h:176:0: warning: "LIS3DSH_OUT_YL_ADDR" redefined
+ #define LIS3DSH_OUT_YL_ADDR   0x2C
+ ^
+stm32f4_discovery_lis3dsh.h:174:0: note: this is the location of the previous definition
+ #define LIS3DSH_OUT_YL_ADDR   0x2A
+ ^
+stm32f4_discovery_lis3dsh.h:177:0: warning: "LIS3DSH_OUT_YH_ADDR" redefined
+ #define LIS3DSH_OUT_YH_ADDR   0x2D
+ ^
+stm32f4_discovery_lis3dsh.h:175:0: note: this is the location of the previous definition
+ #define LIS3DSH_OUT_YH_ADDR   0x2B
+ ^
+stm32f4_discovery_lis3dsh.h:185:62: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SENSITIVITY_2_3G                         18  /* 18 mg/digit
+ ^
+stm32f4_discovery_lis3dsh.h:186:62: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SENSITIVITY_9_2G                         72  /* 72 mg/digit
+ ^
+stm32f4_discovery_lis3dsh.h:188:1: warning: "/*" within comment [-Wcomment]
+ /** @defgroup Data_Rate_selection                 
+ ^
+stm32f4_discovery_lis3dsh.h:193:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:202:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:211:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:221:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:232:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:241:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:250:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:259:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:270:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:281:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:291:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:303:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.h:315:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+main.c: In function 'main':
+main.c:31:5: warning: implicit declaration of function 'TIM_CCxCmd' [-Wimplicit-function-declaration]
+     TIM_CCxCmd(TIM4, TIM_Channel_1, DISABLE);
+     ^
+main.c:31:22: error: 'TIM_Channel_1' undeclared (first use in this function)
+     TIM_CCxCmd(TIM4, TIM_Channel_1, DISABLE);
+                      ^
+main.c:31:22: note: each undeclared identifier is reported only once for each function it appears in
+main.c:32:22: error: 'TIM_Channel_2' undeclared (first use in this function)
+     TIM_CCxCmd(TIM4, TIM_Channel_2, DISABLE);
+                      ^
+main.c:33:22: error: 'TIM_Channel_3' undeclared (first use in this function)
+     TIM_CCxCmd(TIM4, TIM_Channel_3, DISABLE);
+                      ^
+main.c:34:22: error: 'TIM_Channel_4' undeclared (first use in this function)
+     TIM_CCxCmd(TIM4, TIM_Channel_4, DISABLE);
+                      ^
+main.c:73:4: error: expected ';' before 'for'
+    for (;;){
+    ^
+main.c: At top level:
+main.c:88:13: error: static declaration of 'TIM4_Config' follows non-static declaration
+ static void TIM4_Config(void)
+             ^
+main.c:22:6: note: previous declaration of 'TIM4_Config' was here
+ void TIM4_Config(void);
+      ^
+main.c: In function 'TIM4_Config':
+main.c:90:3: error: unknown type name 'GPIO_InitTypeDef'
+   GPIO_InitTypeDef GPIO_InitStructure;
+   ^
+main.c:91:3: error: unknown type name 'TIM_OCInitTypeDef'
+   TIM_OCInitTypeDef  TIM_OCInitStructure;
+   ^
+main.c:92:3: error: unknown type name 'TIM_TimeBaseInitTypeDef'
+   TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;s
+   ^
+main.c:92:50: error: unknown type name 's'
+   TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;s
+                                                  ^
+main.c:96:3: warning: parameter names (without types) in function declaration
+   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+   ^
+main.c:99:3: warning: implicit declaration of function 'RCC_AHB1PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+   ^
+main.c:99:26: error: 'RCC_AHB1Periph_GPIOD' undeclared (first use in this function)
+   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+                          ^
+main.c:103:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+                     ^
+main.c:103:33: error: 'GPIO_Pin_12' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+                                 ^
+main.c:103:47: error: 'GPIO_Pin_13' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+                                               ^
+main.c:103:61: error: 'GPIO_Pin_14' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                             ^
+main.c:103:75: error: 'GPIO_Pin_15' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+                                                                           ^
+main.c:104:21: error: request for member 'GPIO_Mode' in something not a structure or union
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+main.c:104:34: error: 'GPIO_Mode_AF' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^
+main.c:105:21: error: request for member 'GPIO_OType' in something not a structure or union
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+main.c:105:35: error: 'GPIO_OType_PP' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^
+main.c:106:21: error: request for member 'GPIO_PuPd' in something not a structure or union
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+                     ^
+main.c:106:34: error: 'GPIO_PuPd_NOPULL' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+                                  ^
+main.c:107:21: error: request for member 'GPIO_Speed' in something not a structure or union
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                     ^
+main.c:107:35: error: 'GPIO_Speed_100MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+                                   ^
+main.c:108:3: warning: implicit declaration of function 'GPIO_Init' [-Wimplicit-function-declaration]
+   GPIO_Init(GPIOD, &GPIO_InitStructure);
+   ^
+main.c:111:3: warning: implicit declaration of function 'GPIO_PinAFConfig' [-Wimplicit-function-declaration]
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_TIM4);
+   ^
+main.c:111:27: error: 'GPIO_PinSource12' undeclared (first use in this function)
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_TIM4);
+                           ^
+main.c:111:45: error: 'GPIO_AF_TIM4' undeclared (first use in this function)
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_TIM4);
+                                             ^
+main.c:112:27: error: 'GPIO_PinSource13' undeclared (first use in this function)
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource13, GPIO_AF_TIM4); 
+                           ^
+main.c:113:27: error: 'GPIO_PinSource14' undeclared (first use in this function)
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_TIM4);
+                           ^
+main.c:114:27: error: 'GPIO_PinSource15' undeclared (first use in this function)
+   GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_TIM4); 
+                           ^
+main.c:152:24: error: request for member 'TIM_Period' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Period = TIM_ARR;
+                        ^
+main.c:153:24: error: request for member 'TIM_Prescaler' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
+                        ^
+main.c:154:24: error: request for member 'TIM_ClockDivision' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+                        ^
+main.c:155:24: error: request for member 'TIM_CounterMode' in something not a structure or union
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                        ^
+main.c:155:43: error: 'TIM_CounterMode_Up' undeclared (first use in this function)
+   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+                                           ^
+main.c:156:3: warning: implicit declaration of function 'TIM_TimeBaseInit' [-Wimplicit-function-declaration]
+   TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+   ^
+main.c:159:3: warning: implicit declaration of function 'TIM_ARRPreloadConfig' [-Wimplicit-function-declaration]
+   TIM_ARRPreloadConfig(TIM4, ENABLE);
+   ^
+main.c:162:22: error: request for member 'TIM_OCMode' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+                      ^
+main.c:162:36: error: 'TIM_OCMode_PWM1' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+                                    ^
+main.c:163:22: error: request for member 'TIM_OutputState' in something not a structure or union
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                      ^
+main.c:163:41: error: 'TIM_OutputState_Enable' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+                                         ^
+main.c:164:22: error: request for member 'TIM_Pulse' in something not a structure or union
+   TIM_OCInitStructure.TIM_Pulse = TIM_CCR;
+                      ^
+main.c:165:22: error: request for member 'TIM_OCPolarity' in something not a structure or union
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+                      ^
+main.c:165:40: error: 'TIM_OCPolarity_High' undeclared (first use in this function)
+   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+                                        ^
+main.c:168:3: warning: implicit declaration of function 'TIM_OC1Init' [-Wimplicit-function-declaration]
+   TIM_OC1Init(TIM4, &TIM_OCInitStructure);
+   ^
+main.c:169:20: error: 'TIM_Channel_1' undeclared (first use in this function)
+   TIM_CCxCmd(TIM4, TIM_Channel_1, DISABLE);
+                    ^
+main.c:171:3: warning: implicit declaration of function 'TIM_OC1PreloadConfig' [-Wimplicit-function-declaration]
+   TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
+   ^
+main.c:171:30: error: 'TIM_OCPreload_Enable' undeclared (first use in this function)
+   TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
+                              ^
+main.c:174:3: warning: implicit declaration of function 'TIM_OC2Init' [-Wimplicit-function-declaration]
+   TIM_OC2Init(TIM4, &TIM_OCInitStructure);
+   ^
+main.c:175:20: error: 'TIM_Channel_2' undeclared (first use in this function)
+   TIM_CCxCmd(TIM4, TIM_Channel_2, DISABLE);
+                    ^
+main.c:177:3: warning: implicit declaration of function 'TIM_OC2PreloadConfig' [-Wimplicit-function-declaration]
+   TIM_OC2PreloadConfig(TIM4, TIM_OCPreload_Enable);
+   ^
+main.c:180:3: warning: implicit declaration of function 'TIM_OC3Init' [-Wimplicit-function-declaration]
+   TIM_OC3Init(TIM4, &TIM_OCInitStructure);
+   ^
+main.c:181:20: error: 'TIM_Channel_3' undeclared (first use in this function)
+   TIM_CCxCmd(TIM4, TIM_Channel_3, DISABLE);
+                    ^
+main.c:183:3: warning: implicit declaration of function 'TIM_OC3PreloadConfig' [-Wimplicit-function-declaration]
+   TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Enable);
+   ^
+main.c:186:3: warning: implicit declaration of function 'TIM_OC4Init' [-Wimplicit-function-declaration]
+   TIM_OC4Init(TIM4, &TIM_OCInitStructure);
+   ^
+main.c:187:20: error: 'TIM_Channel_4' undeclared (first use in this function)
+   TIM_CCxCmd(TIM4, TIM_Channel_4, DISABLE);
+                    ^
+main.c:189:3: warning: implicit declaration of function 'TIM_OC4PreloadConfig' [-Wimplicit-function-declaration]
+   TIM_OC4PreloadConfig(TIM4, TIM_OCPreload_Enable);
+   ^
+main.c:192:3: warning: implicit declaration of function 'TIM_Cmd' [-Wimplicit-function-declaration]
+   TIM_Cmd(TIM4, ENABLE);
+   ^
+main.c: In function 'Fail_Handler':
+main.c:228:3: warning: implicit declaration of function 'FLASH_EraseSector' [-Wimplicit-function-declaration]
+   FLASH_EraseSector(FLASH_Sector_11, VoltageRange_3);
+   ^
+main.c:228:21: error: 'FLASH_Sector_11' undeclared (first use in this function)
+   FLASH_EraseSector(FLASH_Sector_11, VoltageRange_3);
+                     ^
+main.c:228:38: error: 'VoltageRange_3' undeclared (first use in this function)
+   FLASH_EraseSector(FLASH_Sector_11, VoltageRange_3);
+                                      ^
+main.c:230:3: warning: implicit declaration of function 'FLASH_ProgramWord' [-Wimplicit-function-declaration]
+   FLASH_ProgramWord(TESTRESULT_ADDRESS, ALLTEST_FAIL);
+   ^
+main.c: At top level:
+main.c:88:13: warning: 'TIM4_Config' defined but not used [-Wunused-function]
+ static void TIM4_Config(void)
+             ^
+main.c: In function 'main':
+main.c:87:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:149:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT1_PIN              GPIO_Pin_0                  /* PE.00 
+ ^
+./stm32f4_discovery_lis3dsh.h:150:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT1_GPIO_PORT        GPIOE                       /* GPIOE 
+ ^
+./stm32f4_discovery_lis3dsh.h:157:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT2_PIN              GPIO_Pin_1                  /* PE.01 
+ ^
+./stm32f4_discovery_lis3dsh.h:158:71: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SPI_INT2_GPIO_PORT        GPIOE                       /* GPIOE 
+ ^
+./stm32f4_discovery_lis3dsh.h:176:0: warning: "LIS3DSH_OUT_YL_ADDR" redefined
+ #define LIS3DSH_OUT_YL_ADDR   0x2C
+ ^
+./stm32f4_discovery_lis3dsh.h:174:0: note: this is the location of the previous definition
+ #define LIS3DSH_OUT_YL_ADDR   0x2A
+ ^
+./stm32f4_discovery_lis3dsh.h:177:0: warning: "LIS3DSH_OUT_YH_ADDR" redefined
+ #define LIS3DSH_OUT_YH_ADDR   0x2D
+ ^
+./stm32f4_discovery_lis3dsh.h:175:0: note: this is the location of the previous definition
+ #define LIS3DSH_OUT_YH_ADDR   0x2B
+ ^
+./stm32f4_discovery_lis3dsh.h:185:62: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SENSITIVITY_2_3G                         18  /* 18 mg/digit
+ ^
+./stm32f4_discovery_lis3dsh.h:186:62: warning: "/*" within comment [-Wcomment]
+ #define LIS3DSH_SENSITIVITY_9_2G                         72  /* 72 mg/digit
+ ^
+./stm32f4_discovery_lis3dsh.h:188:1: warning: "/*" within comment [-Wcomment]
+ /** @defgroup Data_Rate_selection                 
+ ^
+./stm32f4_discovery_lis3dsh.h:193:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:202:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:211:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:221:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:232:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:241:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:250:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:259:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:270:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:281:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:291:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:303:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+./stm32f4_discovery_lis3dsh.h:315:1: warning: "/*" within comment [-Wcomment]
+ /**
+ ^
+stm32f4_discovery_lis3dsh.c: In function 'LIS3DSH_Init':
+stm32f4_discovery_lis3dsh.c:23:21: error: expected ')' before 'LIS3DSH_InitStruct'
+                     LIS3DSH_InitStruct->Power_Mode);
+                     ^
+stm32f4_discovery_lis3dsh.c: In function 'LIS3DSH_Write':
+stm32f4_discovery_lis3dsh.c:45:3: warning: implicit declaration of function 'GPIO_ResetBits' [-Wimplicit-function-declaration]
+   LIS3DSH_CS_LOW();
+   ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:145:43: error: 'GPIO_Pin_3' undeclared (first use in this function)
+ #define LIS3DSH_SPI_CS_PIN                GPIO_Pin_3                  /* PE.03 */
+                                           ^
+./stm32f4_discovery_lis3dsh.h:334:73: note: in expansion of macro 'LIS3DSH_SPI_CS_PIN'
+ #define LIS3DSH_CS_LOW()       GPIO_ResetBits(LIS3DSH_SPI_CS_GPIO_PORT, LIS3DSH_SPI_CS_PIN)
+                                                                         ^
+stm32f4_discovery_lis3dsh.c:45:3: note: in expansion of macro 'LIS3DSH_CS_LOW'
+   LIS3DSH_CS_LOW();
+   ^
+./stm32f4_discovery_lis3dsh.h:145:43: note: each undeclared identifier is reported only once for each function it appears in
+ #define LIS3DSH_SPI_CS_PIN                GPIO_Pin_3                  /* PE.03 */
+                                           ^
+./stm32f4_discovery_lis3dsh.h:334:73: note: in expansion of macro 'LIS3DSH_SPI_CS_PIN'
+ #define LIS3DSH_CS_LOW()       GPIO_ResetBits(LIS3DSH_SPI_CS_GPIO_PORT, LIS3DSH_SPI_CS_PIN)
+                                                                         ^
+stm32f4_discovery_lis3dsh.c:45:3: note: in expansion of macro 'LIS3DSH_CS_LOW'
+   LIS3DSH_CS_LOW();
+   ^
+stm32f4_discovery_lis3dsh.c:58:3: warning: implicit declaration of function 'GPIO_SetBits' [-Wimplicit-function-declaration]
+   LIS3DSH_CS_HIGH();
+   ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+stm32f4_discovery_lis3dsh.c: In function 'LIS3DSH_Read':
+./stm32f4_discovery_lis3dsh.h:145:43: error: 'GPIO_Pin_3' undeclared (first use in this function)
+ #define LIS3DSH_SPI_CS_PIN                GPIO_Pin_3                  /* PE.03 */
+                                           ^
+./stm32f4_discovery_lis3dsh.h:334:73: note: in expansion of macro 'LIS3DSH_SPI_CS_PIN'
+ #define LIS3DSH_CS_LOW()       GPIO_ResetBits(LIS3DSH_SPI_CS_GPIO_PORT, LIS3DSH_SPI_CS_PIN)
+                                                                         ^
+stm32f4_discovery_lis3dsh.c:71:3: note: in expansion of macro 'LIS3DSH_CS_LOW'
+   LIS3DSH_CS_LOW();
+   ^
+stm32f4_discovery_lis3dsh.c: At top level:
+stm32f4_discovery_lis3dsh.c:88:6: error: conflicting types for 'LIS3DSH_ReadACC'
+ void LIS3DSH_ReadACC(int16_t* out)
+      ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:349:6: note: previous declaration of 'LIS3DSH_ReadACC' was here
+ void LIS3DSH_ReadACC(int32_t* out);
+      ^
+stm32f4_discovery_lis3dsh.c: In function 'LIS3DSH_ReadACC':
+stm32f4_discovery_lis3dsh.c:90:21: error: unknown type name 't'
+   uint8_t buffer[6];t
+                     ^
+stm32f4_discovery_lis3dsh.c:91:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'crtl'
+   uint8_t crtl, i = 0x00;
+           ^
+stm32f4_discovery_lis3dsh.c:93:17: error: 'crtl' undeclared (first use in this function)
+   LIS3DSH_Read(&crtl, LIS3DSH_CTRL_REG5_ADDR, 1);  
+                 ^
+stm32f4_discovery_lis3dsh.c:94:24: error: 'LIS3DSH_OUT_X_ADDR' undeclared (first use in this function)
+   LIS3DSH_Read(buffer, LIS3DSH_OUT_X_ADDR, 6);
+                        ^
+stm32f4_discovery_lis3dsh.c:100:1: error: 'sensitivity' undeclared (first use in this function)
+ sensitivity = LIS3DSH_SENSITIVITY_0_06G;
+ ^
+stm32f4_discovery_lis3dsh.c:121:5: error: 'i' undeclared (first use in this function)
+ for(i=0; i<3; i++)
+     ^
+stm32f4_discovery_lis3dsh.c:123:1: error: 'valueinfloat' undeclared (first use in this function)
+ valueinfloat = ((buffer[2*i+1] << 8) + buffer[2*i]) * sensitivity;
+ ^
+stm32f4_discovery_lis3dsh.c: In function 'LIS3DSH_LowLevel_Init':
+stm32f4_discovery_lis3dsh.c:129:3: error: unknown type name 'GPIO_InitTypeDef'
+   GPIO_InitTypeDef GPIO_InitStructure;
+   ^
+stm32f4_discovery_lis3dsh.c:130:3: error: unknown type name 'SPI_InitTypeDef'
+   SPI_InitTypeDef  SPI_InitStructure;
+   ^
+stm32f4_discovery_lis3dsh.c:133:3: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_APB2PeriphClockCmd(LIS3DSH_SPI_CLK, ENABLE);
+   ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:125:43: error: 'RCC_APB2Periph_SPI1' undeclared (first use in this function)
+ #define LIS3DSH_SPI_CLK                   RCC_APB2Periph_SPI1
+                                           ^
+stm32f4_discovery_lis3dsh.c:133:26: note: in expansion of macro 'LIS3DSH_SPI_CLK'
+   RCC_APB2PeriphClockCmd(LIS3DSH_SPI_CLK, ENABLE);
+                          ^
+stm32f4_discovery_lis3dsh.c:136:3: warning: implicit declaration of function 'RCC_AHB1PeriphClockCmd' [-Wimplicit-function-declaration]
+   RCC_AHB1PeriphClockCmd(LIS3DSH_SPI_SCK_GPIO_CLK | LIS3DSH_SPI_MISO_GPIO_CLK | LIS3DSH_SPI_MOSI_GPIO_CLK, ENABLE);
+   ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:129:43: error: 'RCC_AHB1Periph_GPIOA' undeclared (first use in this function)
+ #define LIS3DSH_SPI_SCK_GPIO_CLK          RCC_AHB1Periph_GPIOA
+                                           ^
+stm32f4_discovery_lis3dsh.c:136:26: note: in expansion of macro 'LIS3DSH_SPI_SCK_GPIO_CLK'
+   RCC_AHB1PeriphClockCmd(LIS3DSH_SPI_SCK_GPIO_CLK | LIS3DSH_SPI_MISO_GPIO_CLK | LIS3DSH_SPI_MOSI_GPIO_CLK, ENABLE);
+                          ^
+./stm32f4_discovery_lis3dsh.h:147:43: error: 'RCC_AHB1Periph_GPIOE' undeclared (first use in this function)
+ #define LIS3DSH_SPI_CS_GPIO_CLK           RCC_AHB1Periph_GPIOE
+                                           ^
+stm32f4_discovery_lis3dsh.c:139:26: note: in expansion of macro 'LIS3DSH_SPI_CS_GPIO_CLK'
+   RCC_AHB1PeriphClockCmd(LIS3DSH_SPI_CS_GPIO_CLK, ENABLE);
+                          ^
+stm32f4_discovery_lis3dsh.c:142:26: error: 'LIS3DSH_SPI_INT1_GPIO_CLK' undeclared (first use in this function)
+   RCC_AHB1PeriphClockCmd(LIS3DSH_SPI_INT1_GPIO_CLK, ENABLE);
+                          ^
+stm32f4_discovery_lis3dsh.c:145:26: error: 'LIS3DSH_SPI_INT2_GPIO_CLK' undeclared (first use in this function)
+   RCC_AHB1PeriphClockCmd(LIS3DSH_SPI_INT2_GPIO_CLK, ENABLE);
+                          ^
+stm32f4_discovery_lis3dsh.c:147:3: warning: implicit declaration of function 'GPIO_PinAFConfig' [-Wimplicit-function-declaration]
+   GPIO_PinAFConfig(LIS3DSH_SPI_SCK_GPIO_PORT, LIS3DSH_SPI_SCK_SOURCE, LIS3DSH_SPI_SCK_AF);
+   ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:130:43: error: 'GPIO_PinSource5' undeclared (first use in this function)
+ #define LIS3DSH_SPI_SCK_SOURCE            GPIO_PinSource5
+                                           ^
+stm32f4_discovery_lis3dsh.c:147:47: note: in expansion of macro 'LIS3DSH_SPI_SCK_SOURCE'
+   GPIO_PinAFConfig(LIS3DSH_SPI_SCK_GPIO_PORT, LIS3DSH_SPI_SCK_SOURCE, LIS3DSH_SPI_SCK_AF);
+                                               ^
+./stm32f4_discovery_lis3dsh.h:131:43: error: 'GPIO_AF_SPI1' undeclared (first use in this function)
+ #define LIS3DSH_SPI_SCK_AF                GPIO_AF_SPI1
+                                           ^
+stm32f4_discovery_lis3dsh.c:147:71: note: in expansion of macro 'LIS3DSH_SPI_SCK_AF'
+   GPIO_PinAFConfig(LIS3DSH_SPI_SCK_GPIO_PORT, LIS3DSH_SPI_SCK_SOURCE, LIS3DSH_SPI_SCK_AF);
+                                                                       ^
+./stm32f4_discovery_lis3dsh.h:136:43: error: 'GPIO_PinSource6' undeclared (first use in this function)
+ #define LIS3DSH_SPI_MISO_SOURCE           GPIO_PinSource6
+                                           ^
+stm32f4_discovery_lis3dsh.c:148:48: note: in expansion of macro 'LIS3DSH_SPI_MISO_SOURCE'
+   GPIO_PinAFConfig(LIS3DSH_SPI_MISO_GPIO_PORT, LIS3DSH_SPI_MISO_SOURCE, LIS3DSH_SPI_MISO_AF);
+                                                ^
+./stm32f4_discovery_lis3dsh.h:142:43: error: 'GPIO_PinSource7' undeclared (first use in this function)
+ #define LIS3DSH_SPI_MOSI_SOURCE           GPIO_PinSource7
+                                           ^
+stm32f4_discovery_lis3dsh.c:149:48: note: in expansion of macro 'LIS3DSH_SPI_MOSI_SOURCE'
+   GPIO_PinAFConfig(LIS3DSH_SPI_MOSI_GPIO_PORT, LIS3DSH_SPI_MOSI_SOURCE, LIS3DSH_SPI_MOSI_AF);
+                                                ^
+stm32f4_discovery_lis3dsh.c:151:21: error: request for member 'GPIO_Mode' in something not a structure or union
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                     ^
+stm32f4_discovery_lis3dsh.c:151:34: error: 'GPIO_Mode_AF' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+                                  ^
+stm32f4_discovery_lis3dsh.c:152:21: error: request for member 'GPIO_OType' in something not a structure or union
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+stm32f4_discovery_lis3dsh.c:152:35: error: 'GPIO_OType_PP' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                                   ^
+stm32f4_discovery_lis3dsh.c:153:21: error: request for member 'GPIO_PuPd' in something not a structure or union
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
+                     ^
+stm32f4_discovery_lis3dsh.c:153:35: error: 'GPIO_PuPd_DOWN' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
+                                   ^
+stm32f4_discovery_lis3dsh.c:154:21: error: request for member 'GPIO_Speed' in something not a structure or union
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                     ^
+stm32f4_discovery_lis3dsh.c:154:35: error: 'GPIO_Speed_50MHz' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                                   ^
+stm32f4_discovery_lis3dsh.c:157:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_SCK_PIN;
+                     ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:127:43: error: 'GPIO_Pin_5' undeclared (first use in this function)
+ #define LIS3DSH_SPI_SCK_PIN               GPIO_Pin_5                  /* PA.05 */
+                                           ^
+stm32f4_discovery_lis3dsh.c:157:33: note: in expansion of macro 'LIS3DSH_SPI_SCK_PIN'
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_SCK_PIN;
+                                 ^
+stm32f4_discovery_lis3dsh.c:158:3: warning: implicit declaration of function 'GPIO_Init' [-Wimplicit-function-declaration]
+   GPIO_Init(LIS3DSH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure);
+   ^
+stm32f4_discovery_lis3dsh.c:161:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin =  LIS3DSH_SPI_MOSI_PIN;
+                     ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:139:43: error: 'GPIO_Pin_7' undeclared (first use in this function)
+ #define LIS3DSH_SPI_MOSI_PIN              GPIO_Pin_7                  /* PA.7 */
+                                           ^
+stm32f4_discovery_lis3dsh.c:161:34: note: in expansion of macro 'LIS3DSH_SPI_MOSI_PIN'
+   GPIO_InitStructure.GPIO_Pin =  LIS3DSH_SPI_MOSI_PIN;
+                                  ^
+stm32f4_discovery_lis3dsh.c:165:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_MISO_PIN;
+                     ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:133:43: error: 'GPIO_Pin_6' undeclared (first use in this function)
+ #define LIS3DSH_SPI_MISO_PIN              GPIO_Pin_6                  /* PA.6 */
+                                           ^
+stm32f4_discovery_lis3dsh.c:165:33: note: in expansion of macro 'LIS3DSH_SPI_MISO_PIN'
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_MISO_PIN;
+                                 ^
+stm32f4_discovery_lis3dsh.c:169:3: warning: implicit declaration of function 'SPI_I2S_DeInit' [-Wimplicit-function-declaration]
+   SPI_I2S_DeInit(LIS3DSH_SPI);
+   ^
+stm32f4_discovery_lis3dsh.c:170:20: error: request for member 'SPI_Direction' in something not a structure or union
+   SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+                    ^
+stm32f4_discovery_lis3dsh.c:170:37: error: 'SPI_Direction_2Lines_FullDuplex' undeclared (first use in this function)
+   SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+                                     ^
+stm32f4_discovery_lis3dsh.c:171:20: error: request for member 'SPI_DataSize' in something not a structure or union
+   SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+                    ^
+stm32f4_discovery_lis3dsh.c:171:36: error: 'SPI_DataSize_8b' undeclared (first use in this function)
+   SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+                                    ^
+stm32f4_discovery_lis3dsh.c:172:20: error: request for member 'SPI_CPOL' in something not a structure or union
+   SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+                    ^
+stm32f4_discovery_lis3dsh.c:172:32: error: 'SPI_CPOL_Low' undeclared (first use in this function)
+   SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+                                ^
+stm32f4_discovery_lis3dsh.c:173:20: error: request for member 'SPI_CPHA' in something not a structure or union
+   SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+                    ^
+stm32f4_discovery_lis3dsh.c:173:32: error: 'SPI_CPHA_1Edge' undeclared (first use in this function)
+   SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+                                ^
+stm32f4_discovery_lis3dsh.c:174:20: error: request for member 'SPI_NSS' in something not a structure or union
+   SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+                    ^
+stm32f4_discovery_lis3dsh.c:174:31: error: 'SPI_NSS_Soft' undeclared (first use in this function)
+   SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+                               ^
+stm32f4_discovery_lis3dsh.c:175:20: error: request for member 'SPI_BaudRatePrescaler' in something not a structure or union
+   SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;
+                    ^
+stm32f4_discovery_lis3dsh.c:175:45: error: 'SPI_BaudRatePrescaler_4' undeclared (first use in this function)
+   SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;
+                                             ^
+stm32f4_discovery_lis3dsh.c:176:20: error: request for member 'SPI_FirstBit' in something not a structure or union
+   SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+                    ^
+stm32f4_discovery_lis3dsh.c:176:36: error: 'SPI_FirstBit_MSB' undeclared (first use in this function)
+   SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+                                    ^
+stm32f4_discovery_lis3dsh.c:177:20: error: request for member 'SPI_CRCPolynomial' in something not a structure or union
+   SPI_InitStructure.SPI_CRCPolynomial = 7;
+                    ^
+stm32f4_discovery_lis3dsh.c:178:20: error: request for member 'SPI_Mode' in something not a structure or union
+   SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+                    ^
+stm32f4_discovery_lis3dsh.c:178:32: error: 'SPI_Mode_Master' undeclared (first use in this function)
+   SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+                                ^
+stm32f4_discovery_lis3dsh.c:179:3: warning: implicit declaration of function 'SPI_Init' [-Wimplicit-function-declaration]
+   SPI_Init(LIS3DSH_SPI, &SPI_InitStructure);
+   ^
+stm32f4_discovery_lis3dsh.c:182:3: warning: implicit declaration of function 'SPI_Cmd' [-Wimplicit-function-declaration]
+   SPI_Cmd(LIS3DSH_SPI, ENABLE);
+   ^
+stm32f4_discovery_lis3dsh.c:185:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_CS_PIN;
+                     ^
+In file included from stm32f4_discovery_lis3dsh.c:1:0:
+./stm32f4_discovery_lis3dsh.h:145:43: error: 'GPIO_Pin_3' undeclared (first use in this function)
+ #define LIS3DSH_SPI_CS_PIN                GPIO_Pin_3                  /* PE.03 */
+                                           ^
+stm32f4_discovery_lis3dsh.c:185:33: note: in expansion of macro 'LIS3DSH_SPI_CS_PIN'
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_CS_PIN;
+                                 ^
+stm32f4_discovery_lis3dsh.c:186:21: error: request for member 'GPIO_Mode' in something not a structure or union
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+                     ^
+stm32f4_discovery_lis3dsh.c:186:34: error: 'GPIO_Mode_OUT' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+                                  ^
+stm32f4_discovery_lis3dsh.c:187:21: error: request for member 'GPIO_OType' in something not a structure or union
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+stm32f4_discovery_lis3dsh.c:188:21: error: request for member 'GPIO_Speed' in something not a structure or union
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                     ^
+stm32f4_discovery_lis3dsh.c:195:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_INT1_PIN;
+                     ^
+stm32f4_discovery_lis3dsh.c:195:33: error: 'LIS3DSH_SPI_INT1_PIN' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_INT1_PIN;
+                                 ^
+stm32f4_discovery_lis3dsh.c:196:21: error: request for member 'GPIO_Mode' in something not a structure or union
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+                     ^
+stm32f4_discovery_lis3dsh.c:196:34: error: 'GPIO_Mode_IN' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+                                  ^
+stm32f4_discovery_lis3dsh.c:197:21: error: request for member 'GPIO_OType' in something not a structure or union
+   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+                     ^
+stm32f4_discovery_lis3dsh.c:198:21: error: request for member 'GPIO_Speed' in something not a structure or union
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+                     ^
+stm32f4_discovery_lis3dsh.c:199:21: error: request for member 'GPIO_PuPd' in something not a structure or union
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                     ^
+stm32f4_discovery_lis3dsh.c:199:35: error: 'GPIO_PuPd_NOPULL' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
+                                   ^
+stm32f4_discovery_lis3dsh.c:200:13: error: 'LIS3DSH_SPI_INT1_GPIO_PORT' undeclared (first use in this function)
+   GPIO_Init(LIS3DSH_SPI_INT1_GPIO_PORT, &GPIO_InitStructure);
+             ^
+stm32f4_discovery_lis3dsh.c:202:21: error: request for member 'GPIO_Pin' in something not a structure or union
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_INT2_PIN;
+                     ^
+stm32f4_discovery_lis3dsh.c:202:33: error: 'LIS3DSH_SPI_INT2_PIN' undeclared (first use in this function)
+   GPIO_InitStructure.GPIO_Pin = LIS3DSH_SPI_INT2_PIN;
+                                 ^
+stm32f4_discovery_lis3dsh.c:203:13: error: 'LIS3DSH_SPI_INT2_GPIO_PORT' undeclared (first use in this function)
+   GPIO_Init(LIS3DSH_SPI_INT2_GPIO_PORT, &GPIO_InitStructure);
+             ^
+stm32f4_discovery_lis3dsh.c: In function 'LIS3DSH_SendByte':
+stm32f4_discovery_lis3dsh.c:209:3: warning: implicit declaration of function 'SPI_I2S_GetFlagStatus' [-Wimplicit-function-declaration]
+   while (SPI_I2S_GetFlagStatus(LIS3DSH_SPI, SPI_I2S_FLAG_TXE) == RESET)
+   ^
+stm32f4_discovery_lis3dsh.c:209:45: error: 'SPI_I2S_FLAG_TXE' undeclared (first use in this function)
+   while (SPI_I2S_GetFlagStatus(LIS3DSH_SPI, SPI_I2S_FLAG_TXE) == RESET)
+                                             ^
+stm32f4_discovery_lis3dsh.c:211:5: warning: implicit declaration of function 'LIS3DSH_TIMEOUT_UserCallback' [-Wimplicit-function-declaration]
+     if((LIS3DSHTimeout--) == 0) return LIS3DSH_TIMEOUT_UserCallback();
+     ^
+stm32f4_discovery_lis3dsh.c:215:3: warning: implicit declaration of function 'SPI_I2S_SendData' [-Wimplicit-function-declaration]
+   SPI_I2S_SendData(LIS3DSH_SPI, byte);
+   ^
+stm32f4_discovery_lis3dsh.c:219:45: error: 'SPI_I2S_FLAG_RXNE' undeclared (first use in this function)
+   while (SPI_I2S_GetFlagStatus(LIS3DSH_SPI, SPI_I2S_FLAG_RXNE) == RESET)
+                                             ^
+stm32f4_discovery_lis3dsh.c:225:3: warning: implicit declaration of function 'SPI_I2S_ReceiveData' [-Wimplicit-function-declaration]
+   return (uint8_t)SPI_I2S_ReceiveData(LIS3DSH_SPI);
+   ^
+make: *** [LIS3DSH.elf] Error 1
