@@ -1,9 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include "stm32f4_discovery.h"
-//#include "stm32f4_discovery_audio_codec.h"
+/*#include "stm32f4_discovery_audio_codec.h"*/
 #include "stm32f4_discovery_lis3dsh.h"
-//#include "selftest.h"
+/*#include "selftest.h"*/
+
+#include "stm32f4xx_conf.h"
+
 #include <stdio.h>
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
@@ -31,6 +34,7 @@
 void TimingDelay_Decrement(void);
 void Delay(__IO uint32_t nTime);
 void Fail_Handler(void);
+
 #endif /* __STM32F4_DISCOVERY_DEMO_H */
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

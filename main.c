@@ -25,7 +25,8 @@ uint8_t Buffer[6];
 int main(void){
 /*Initialising the structure for the accelerometer*/
 /* TIM4 channels configuration */
-    TIM4_Config();
+  //setbuf(stdout, NULL);  
+  TIM4_Config();
     
     /* Disable all Timer4 channels */
     TIM_CCxCmd(TIM4, TIM_Channel_1, DISABLE);
@@ -65,13 +66,13 @@ int main(void){
 // Disable STDOUT buffering. Otherwise nothing will be printed
    // before a newline character or when the buffer is flushed.
    // This MUST be done before any writes to STDOUT to have any effect...
-   setbuf(stdout, NULL);
+   
 
    printf("Hello world\r\n");
-   printf("X_offset = %d",X_Offset)
+   printf("X_offset = %d",X_Offset);
 
-   for (;;){
-LIS3DSH_Read(Buffer, LIS3DSH_OUT_X_ADDR, 6);
+   for(;;){
+LIS3DSH_Read(Buffer, LIS3DSH_OUT_XL_ADDR, 6);
     X_Offset = Buffer[0];
     Y_Offset = Buffer[2];
     Z_Offset = Buffer[4];	
@@ -89,7 +90,7 @@ static void TIM4_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
   TIM_OCInitTypeDef  TIM_OCInitStructure;
-  TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;s
+  TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
   
   /* --------------------------- System Clocks Configuration -----------------*/
   /* TIM4 clock enable */

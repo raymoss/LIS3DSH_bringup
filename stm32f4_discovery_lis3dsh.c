@@ -1,4 +1,4 @@
-#include <stm32f4_discovery_lis3dsh.h>
+#include "stm32f4_discovery_lis3dsh.h"
 
 __IO uint32_t  LIS3DSHTimeout = LIS3DSH_FLAG_TIMEOUT;   
 
@@ -10,7 +10,7 @@ __IO uint32_t  LIS3DSHTimeout = LIS3DSH_FLAG_TIMEOUT;
 #define DUMMY_BYTE                 ((uint8_t)0x00)
 static uint8_t LIS3DSH_SendByte(uint8_t byte);
 static void LIS3DSH_LowLevel_Init(void);
-
+float sensitivity = 0.0;
 void LIS3DSH_Init(LIS3DSH_InitTypeDef *LIS3DSH_InitStruct)
 {
   uint8_t ctrl = 0x00;
@@ -19,8 +19,8 @@ void LIS3DSH_Init(LIS3DSH_InitTypeDef *LIS3DSH_InitStruct)
   LIS3DSH_LowLevel_Init();
   
   /* Configure MEMS: data rate, power mode, full scale, self test and axes */
-  ctrl = (uint8_t) (LIS3DSH_InitStruct->Block_data_update | LIS3DSH_InitStruct->Axes_Enable \
-                    LIS3DSH_InitStruct->Power_Mode);
+  ctrl = (uint8_t) (LIS3DSH_InitStruct->Block_data_update | LIS3DSH_InitStruct->Axes_Enable | \
+    LIS3DSH_InitStruct->Power_Mode);
   
   /* Write value to MEMS CTRL_REG1 regsister */
   LIS3DSH_Write(&ctrl, LIS3DSH_CTRL_REG4_ADDR, 1);
@@ -85,13 +85,13 @@ void LIS3DSH_Read(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead)
   /* Set chip select High at the end of the transmission */ 
   LIS3DSH_CS_HIGH();
 }
-void LIS3DSH_ReadACC(int16_t* out)
+void LIS3DSH_ReadACC(int32_t* out)
 {
-  uint8_t buffer[6];t
+  uint8_t buffer[6];
   uint8_t crtl, i = 0x00;
    
   LIS3DSH_Read(&crtl, LIS3DSH_CTRL_REG5_ADDR, 1);  
-  LIS3DSH_Read(buffer, LIS3DSH_OUT_X_ADDR, 6);
+  LIS3DSH_Read(buffer, LIS3DSH_OUT_XL_ADDR, 6);
   
   switch(crtl & LIS3DSH__FULLSCALE_SELECTION)
 {
@@ -118,6 +118,7 @@ break;
 default:
 break;
 }
+float valueinfloat=0.0;
 for(i=0; i<3; i++)
 {
 valueinfloat = ((buffer[2*i+1] << 8) + buffer[2*i]) * sensitivity;

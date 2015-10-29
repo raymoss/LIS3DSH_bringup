@@ -4,6 +4,7 @@
  extern "C" {
 #endif
 #include "stm32f4xx.h"
+#include "stm32f4xx_conf.h"
 /* LIS3DSH struct */
 typedef struct
 {
@@ -145,23 +146,23 @@ typedef struct
 #define LIS3DSH_SPI_CS_PIN                GPIO_Pin_3                  /* PE.03 */
 #define LIS3DSH_SPI_CS_GPIO_PORT          GPIOE                       /* GPIOE */
 #define LIS3DSH_SPI_CS_GPIO_CLK           RCC_AHB1Periph_GPIOE
-/*
-#define LIS3DSH_SPI_INT1_PIN              GPIO_Pin_0                  /* PE.00 
-#define LIS3DSH_SPI_INT1_GPIO_PORT        GPIOE                       /* GPIOE 
+
+#define LIS3DSH_SPI_INT1_PIN              GPIO_Pin_0                  /* PE.00 */ 
+#define LIS3DSH_SPI_INT1_GPIO_PORT        GPIOE                       /* GPIOE  */
 #define LIS3DSH_SPI_INT1_GPIO_CLK         RCC_AHB1Periph_GPIOE
 #define LIS3DSH_SPI_INT1_EXTI_LINE        EXTI_Line0
 #define LIS3DSH_SPI_INT1_EXTI_PORT_SOURCE EXTI_PortSourceGPIOE
 #define LIS3DSH_SPI_INT1_EXTI_PIN_SOURCE  EXTI_PinSource0
 #define LIS3DSH_SPI_INT1_EXTI_IRQn        EXTI0_IRQn 
 
-#define LIS3DSH_SPI_INT2_PIN              GPIO_Pin_1                  /* PE.01 
-#define LIS3DSH_SPI_INT2_GPIO_PORT        GPIOE                       /* GPIOE 
+#define LIS3DSH_SPI_INT2_PIN              GPIO_Pin_1                  /* PE.01  */
+#define LIS3DSH_SPI_INT2_GPIO_PORT        GPIOE                       /* GPIOE  */
 #define LIS3DSH_SPI_INT2_GPIO_CLK         RCC_AHB1Periph_GPIOE
 #define LIS3DSH_SPI_INT2_EXTI_LINE        EXTI_Line1
 #define LIS3DSH_SPI_INT2_EXTI_PORT_SOURCE EXTI_PortSourceGPIOE
 #define LIS3DSH_SPI_INT2_EXTI_PIN_SOURCE  EXTI_PinSource1
 #define LIS3DSH_SPI_INT2_EXTI_IRQn        EXTI1_IRQn 
- */
+
 
 #define LIS3DSH_WHO_AM_I_ADDR                  0x0F
 #define LIS3DSH_CTRL_REG4_ADDR			0x20      /*Funtionality similar to LIS3DSH_CTRL_REG1_ADDR */
