@@ -12,6 +12,8 @@ C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\STM32F4xx_S
 -I
 C:\Users\ray\Documents\LIS3DSH
 -I
+C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library
+-I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\arm\inc\c
@@ -25,6 +27,8 @@ C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\CMSIS\ST\ST
 C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\STM32F4xx_StdPeriph_Driver\inc
 -I
 C:\Users\ray\Documents\LIS3DSH
+-I
+C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -227,8 +231,8 @@ C:\Users\ray\Documents\LIS3DSH
 -D__HAS_LOCATED_DECLARATION__=1
 -D__HAS_LOCATED_WITH_INIT__=1
 -D__IAR_COMPILERBASE__=593926
--D__DATE__="Oct 29 2015"
--D__TIME__="00:21:55"
+-D__DATE__="Nov  1 2015"
+-D__TIME__="00:54:49"
 -D__STDC__=1
 -D__STDC_VERSION__=199901L
 -D__STDC_HOSTED__=1

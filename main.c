@@ -50,7 +50,7 @@ int main(void){
     
     /* Required delay for the MEMS Accelerometre: Turn-on time = 3/Output data Rate 
     = 3/100 = 30ms */
-    Delay(30);
+    ms_delay(30);
     
     DemoEnterCondition = 0x01;
     /* MEMS High Pass Filter configuration 
@@ -67,19 +67,19 @@ int main(void){
    // before a newline character or when the buffer is flushed.
    // This MUST be done before any writes to STDOUT to have any effect...
    
-
-   printf("Hello world\r\n");
-   printf("X_offset = %d",X_Offset);
+   usart_initialization();
+   usart_printf("Hello world\r\n");
+   usart_printf("X_offset = %d\r\n",X_Offset);
 
    for(;;){
 LIS3DSH_Read(Buffer, LIS3DSH_OUT_XL_ADDR, 6);
     X_Offset = Buffer[0];
     Y_Offset = Buffer[2];
     Z_Offset = Buffer[4];	
-printf("X_offset = %d",X_Offset);
-	printf("Y_offset = %d",Y_Offset);
-	printf("Z_offset = %d",Z_Offset);
-Delay(5000);	
+usart_printf("X_offset = %d\r\n",X_Offset);
+	usart_printf("Y_offset = %d\r\n",Y_Offset);
+	usart_printf("Z_offset = %d\r\n",Z_Offset);
+ms_delay(1000);	
 }
       
    

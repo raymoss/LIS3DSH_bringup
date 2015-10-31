@@ -284,6 +284,12 @@
   <file>
     <name>$PROJ_DIR$\system_stm32f4xx.c</name>
   </file>
+  <file>
+    <name>$PROJ_DIR$\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library\usart_print.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library\usart_print.h</name>
+  </file>
 </project>
 
 

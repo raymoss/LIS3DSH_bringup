@@ -302,6 +302,7 @@
           <state>C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\CMSIS\ST\STM32F4xx\Include</state>
           <state>C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\STM32F4xx_StdPeriph_Driver\inc</state>
           <state>C:\Users\ray\Documents\LIS3DSH</state>
+          <state>C:\Users\ray\Documents\LIS3DSH\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -543,7 +544,7 @@
         </option>
         <option>
           <name>AOutputFile</name>
-          <state></state>
+          <state>$FILE_BNAME$.o</state>
         </option>
         <option>
           <name>AMultibyteSupport</name>
@@ -597,7 +598,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state></state>
+          <state>LIS3DSH_bringup.srec</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -2001,6 +2002,12 @@
   </file>
   <file>
     <name>$PROJ_DIR$\system_stm32f4xx.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library\usart_print.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\STM32F4-Discovery_FW_V1.1.0\Libraries\my_library\usart_print.h</name>
   </file>
 </project>
 

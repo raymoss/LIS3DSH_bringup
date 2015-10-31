@@ -2,6 +2,7 @@
 #define MAIN_H
 #include "stm32f4_discovery.h"
 /*#include "stm32f4_discovery_audio_codec.h"*/
+#include "usart_print.h"
 #include "stm32f4_discovery_lis3dsh.h"
 /*#include "selftest.h"*/
 
