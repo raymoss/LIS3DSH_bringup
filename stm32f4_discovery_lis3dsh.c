@@ -21,14 +21,15 @@ void LIS3DSH_Init(LIS3DSH_InitTypeDef *LIS3DSH_InitStruct)
   /* Configure MEMS: data rate, power mode, full scale, self test and axes */
   ctrl = (uint8_t) (LIS3DSH_InitStruct->Block_data_update | LIS3DSH_InitStruct->Axes_Enable | \
     LIS3DSH_InitStruct->Power_Mode);
-  
+  usart_printf("The value of ctrl reg4 = %x\r\n",ctrl);
   /* Write value to MEMS CTRL_REG1 regsister */
   LIS3DSH_Write(&ctrl, LIS3DSH_CTRL_REG4_ADDR, 1);
 /*Initialising control reg 5*/
 	ctrl = 0x00;
 	ctrl=(uint8_t)(LIS3DSH_InitStruct->Anti_Alising_bandwidth | LIS3DSH_InitStruct->Full_scale_selection | \
 			LIS3DSH_InitStruct->Self_test_enable | LIS3DSH_InitStruct->SPI_mode_selection);
-LIS3DSH_Write(&ctrl , LIS3DSH_CTRL_REG5_ADDR , 1);
+usart_printf("The value of ctrl reg5 = %x\r\n",ctrl);
+        LIS3DSH_Write(&ctrl , LIS3DSH_CTRL_REG5_ADDR , 1);
 }
 
 void LIS3DSH_Write(uint8_t* pBuffer, uint8_t WriteAddr, uint16_t NumByteToWrite)
@@ -61,7 +62,7 @@ void LIS3DSH_Read(uint8_t* pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead)
 {  
   if(NumByteToRead > 0x01)
   {
-    ReadAddr |= (uint8_t)(READWRITE_CMD | MULTIPLEBYTE_CMD);
+    ReadAddr |= (uint8_t)(READWRITE_CMD);
   }
   else
   {

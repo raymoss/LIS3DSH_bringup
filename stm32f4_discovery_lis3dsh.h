@@ -5,6 +5,7 @@
 #endif
 #include "stm32f4xx.h"
 #include "stm32f4xx_conf.h"
+#include "usart_print.h"
 /* LIS3DSH struct */
 typedef struct
 {

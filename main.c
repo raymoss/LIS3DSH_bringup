@@ -20,14 +20,14 @@ __IO uint8_t DemoEnterCondition = 0x00;
 __IO uint8_t UserButtonPressed = 0x00;
 LIS3DSH_InitTypeDef  LIS3DSH_InitStruct;
 void TIM4_Config(void);
-__IO int8_t X_Offset, Y_Offset, Z_Offset  = 0x00;
+__IO int16_t X_Offset, Y_Offset, Z_Offset  = 0x00;
 uint8_t Buffer[6];
 int main(void){
 /*Initialising the structure for the accelerometer*/
 /* TIM4 channels configuration */
   //setbuf(stdout, NULL);  
   TIM4_Config();
-    
+    usart_initialization();
     /* Disable all Timer4 channels */
     TIM_CCxCmd(TIM4, TIM_Channel_1, DISABLE);
     TIM_CCxCmd(TIM4, TIM_Channel_2, DISABLE);
@@ -35,9 +35,10 @@ int main(void){
     TIM_CCxCmd(TIM4, TIM_Channel_4, DISABLE);
 
 
+//reseting the internal circuit
+   
 
-
-
+ms_delay(1000);
  /* MEMS configuration */
     LIS3DSH_InitStruct.Power_Mode = LIS3DSH_DATARATE_100;
     LIS3DSH_InitStruct.Block_data_update = LIS3DSH_BDU_NO_UPDATE;
@@ -47,7 +48,13 @@ int main(void){
     LIS3DSH_InitStruct.Self_test_enable = LIS3DSH_SELFTEST_NORMAL;
     LIS3DSH_InitStruct.SPI_mode_selection = LIS3DSH_SERIALINTERFACE_4WIRE;
     LIS3DSH_Init(&LIS3DSH_InitStruct);
-    
+    //Reseting offset to zero
+     Buffer[0]=0xC8;
+  LIS3DSH_Write(Buffer,0x23,1);
+    Buffer[0]=0x00;
+    LIS3DSH_Write(Buffer,0x10,1);
+    LIS3DSH_Write(Buffer,0x11,1);
+    LIS3DSH_Write(Buffer,0x12,1);
     /* Required delay for the MEMS Accelerometre: Turn-on time = 3/Output data Rate 
     = 3/100 = 30ms */
     ms_delay(30);
@@ -59,28 +66,54 @@ int main(void){
     LIS3DSH_FilterStruct.HighPassFilter_Interrupt = LIS3DSH_HIGHPASSFILTERINTERRUPT_1_2;
     LIS3DSH_FilterConfig(&LIS3DSH_FilterStruct);  */
     
-    LIS3DSH_Read(Buffer, LIS3DSH_OUT_XL_ADDR, 6);
-    X_Offset = Buffer[0];
-    Y_Offset = Buffer[2];
-    Z_Offset = Buffer[4];
+   
 // Disable STDOUT buffering. Otherwise nothing will be printed
    // before a newline character or when the buffer is flushed.
    // This MUST be done before any writes to STDOUT to have any effect...
    
-   usart_initialization();
+   
    usart_printf("Hello world\r\n");
-   usart_printf("X_offset = %d\r\n",X_Offset);
-
+   //usart_printf("X_offset = %d\r\n",X_Offset);
+//Let check which device is there and the info registers value so that we confirm the SPI and sensor are giving expected results.
+   
+   LIS3DSH_Read(Buffer,0x0F,1);
+   usart_printf("who am i is %x\r\n",Buffer[0]);
+   LIS3DSH_Read(Buffer,0x0D,1);
+   usart_printf("info1 is %x\r\n",Buffer[0]);
+   LIS3DSH_Read(Buffer,0x0E,1);
+   usart_printf("info2 is %x\r\n",Buffer[0]);
+  int i=0;
    for(;;){
-LIS3DSH_Read(Buffer, LIS3DSH_OUT_XL_ADDR, 6);
+//Reading the status of the register if there is a change in value.
+     for(i=0;i<6;i++) Buffer[i]=0x01;
+    
+     LIS3DSH_Read(Buffer, LIS3DSH_OUT_XL_ADDR, 6);
     X_Offset = Buffer[0];
     Y_Offset = Buffer[2];
-    Z_Offset = Buffer[4];	
-usart_printf("X_offset = %d\r\n",X_Offset);
-	usart_printf("Y_offset = %d\r\n",Y_Offset);
-	usart_printf("Z_offset = %d\r\n",Z_Offset);
-ms_delay(1000);	
-}
+    Z_Offset = Buffer[4]; 
+   
+usart_printf("X_offset = %x",Buffer[1]);
+usart_printf("%x\r\n",Buffer[0]);
+usart_printf("Y_offset = %x",Buffer[3]);
+usart_printf("%x\r\n",Buffer[2]);
+usart_printf("z_offset = %x",Buffer[5]);
+usart_printf("%x\r\n",Buffer[4]);
+
+      /*
+  LIS3DSH_Read(Buffer,0x28,1);
+  usart_printf("X_offset = %x",Buffer[0]);
+  LIS3DSH_Read(Buffer,0x2A,1);
+  usart_printf("Y_offset = %x",Buffer[0]);
+  LIS3DSH_Read(Buffer,0x2C,1);
+  usart_printf("Z_offset = %x",Buffer[0]);
+*/
+do{
+  LIS3DSH_Read(Buffer,0x27,1);
+     usart_printf("Status value is %x\r\n",Buffer[0]);
+     usart_printf("Status_check value is %x\r\n",!(Buffer[0]&0x08>>3));
+}while(!(Buffer[0]&0x08>>3));
+ms_delay(2000);
+   }
       
    
    return 0;
